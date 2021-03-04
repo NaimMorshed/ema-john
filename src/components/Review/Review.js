@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Review = () => {
+const Review = (props) => {
+    let {items, setItems} = useState([]);
     return (
         <div>
-            <h1>This is review</h1>
+            <h1>Total cart items: {items}</h1>
         </div>
     );
 };
