@@ -10,7 +10,6 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
 
     const productHandle = (product) => {
-        console.log("Product added: ", product);
         const newCart = [...cart, product];
         setCart(newCart);
     }
@@ -22,6 +21,7 @@ const Shop = () => {
                     products.map(
                         product => 
                             <Product 
+                                showButton = {true}
                                 productHandle = {productHandle}
                                 product={product}>
                             </Product>

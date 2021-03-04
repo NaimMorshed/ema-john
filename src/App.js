@@ -2,7 +2,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 import Review from './components/Review/Review.js';
-import Inventory from './components/Inventory/Inventory.js'
+import Inventory from './components/Inventory/Inventory.js';
+import ProductDetail from './components/ProductDetail/ProductDetail.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Shop></Shop>
+          </Route>
+          <Route path="/product/:productKey">
+            <ProductDetail></ProductDetail>
           </Route>
           <Route path="*">
             <NotFount></NotFount>
