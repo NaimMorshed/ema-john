@@ -1,9 +1,11 @@
 const getUser = () => {
     const existingUser = sessionStorage.getItem('userId');
+    console.log(`ExistingUser: ${existingUser}`);
     if (existingUser) {
         return existingUser; 
     } else {
         const newUser = 'user-' + new Date().getTime();
+        console.log(`NewUser: ${newUser}`);
         sessionStorage.setItem('userId', newUser)
         return newUser;
     }
