@@ -1,17 +1,22 @@
 import React from 'react';
+import Cart from '../Cart/Cart';
+import './ReviewItem.css'
 
 const ReviewItem = (props) => {
-    const [name, quantity] = props.product;
-    const style = {
-        borderBottom: '1px solid lightgray',
-        marginBottom: '5px'
-    };
+    const { name, key, quantity, price } = props.product;
+
     return (
-        <div style={style} className="review-item">
-            <h4 className="product-name">This is review</h4>
-            <p>Quantity: {quantity}</p>
-            <br/>
-            <button className="main-button">Remove</button>
+        <div className="container">
+            <div className="review-item">
+                <h4 className="product-name">{name}</h4>
+                <p>Quantity: {quantity}</p>
+                <p><small>${price}</small></p>
+                <br />
+                <button onClick={() => props.removeProduct(key)} className="main-button">Remove</button>
+            </div>
+            <div className="cart-container">
+                <Cart cart={props}></Cart>
+            </div>
         </div>
     );
 };

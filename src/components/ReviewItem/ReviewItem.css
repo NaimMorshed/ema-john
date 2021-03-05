@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+}
+.cart-container{
+    width: 25%;
+}
+.review-item{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+    padding: 10px 50px;
+    width: 75%;
+}

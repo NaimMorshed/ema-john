@@ -24,9 +24,10 @@ const Shop = () => {
                     products.map(
                         product => 
                             <Product 
+                                key = {product.key}
                                 showButton = {true}
                                 productHandle = {productHandle}
-                                product={product}>
+                                product = {product}>
                             </Product>
                     )
                 }
