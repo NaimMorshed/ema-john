@@ -10,6 +10,7 @@ const Shop = () => {
     const [products, setProducts] = useState(first10);
     const [cart, setCart] = useState([]);
 
+    
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
@@ -23,20 +24,19 @@ const Shop = () => {
 
     const productHandle = (product) => {
         const toBeAddedKey = product.key;
-        const sameProduct = cart.find(cart => cart.key === toBeAddedKey);
+        const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
         let count = 1;
-        let newCount;
-        if (sameProduct) {
+        let newCart;
+        if(sameProduct) {
             count = sameProduct.quantity + 1;
             sameProduct.quantity = count;
-            const others = cart.filter(pd => pd.key === product.key)
-            newCount = [...others, sameProduct];
+            const others = cart.filter(pd => pd.key !== toBeAddedKey);
+            newCart = [...others, sameProduct];
         } else {
             product.quantity = 1;
-            newCount = [...cart, product];
+            newCart = [...cart, product]
         }
-        setCart(newCount);
-        
+        setCart(newCart);
         addToDatabaseCart(product.key, count.length);
     }
 
